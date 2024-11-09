@@ -1,13 +1,13 @@
 # ⚡️ Bolt (my dotfiles 📂)
 
-Bolt is a command line tool I built to manage my dotfiles. This allows me to
+Bolt is a command line tool I'm working on to manage my dotfiles. This allows me to
 maintain a consistent environment between...
 
 1. My personal and work laptops (MacOS).
 2. A linux PC (Fedora)
 3. WSL2 (Ubuntu)
 
-## Features 🚀
+## Planned Features 📝
 
 - Compare existing files with the dotfiles in the repository and print a diff
 to stdout.
@@ -17,9 +17,6 @@ to stdout.
 - List all the dotfiles in the repository.
 - List all the backed up files in the specified location (`$HOME/.dotfiles` by
 default).
-
-### Future Plans 🌟
-
 - Show comparison to bash commands that can do the same thing (something like
 `bolt learn <command>`).
 - Eventually I want to learn nix and flakes and may incorporate or use that
@@ -43,12 +40,3 @@ required version of Golang (1.23.2) by running:
 asdf plugin add golang
 asdf install go 1.23.2
 ```
-
-## Neovim
-
-## TODO 📝
-
-- [ ] Neovim
-- [ ] Zellij
-- [ ] zsh
-- [ ] oh-my-zsh
