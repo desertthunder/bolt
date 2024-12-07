@@ -1,26 +1,27 @@
 # ⚡️ Bolt (my dotfiles 📂)
 
-Bolt is a command line tool I'm working on to manage my dotfiles. This allows me to
-maintain a consistent environment between...
+Bolt is a command line tool I'm working on to manage my dotfiles. This allows
+me to maintain a consistent environment between...
 
 1. My personal and work laptops (MacOS).
 2. A linux PC (Fedora)
-3. WSL2 (Ubuntu)
+3. Another linux PC (Linux Mint Debian)
+4. WSL2 (Ubuntu)
 
 ## Planned Features 📝
 
 - Compare existing files with the dotfiles in the repository and print a diff
-to stdout.
+  to stdout.
 - Symlink dotfiles to the specified location or overwrite the existing files.
 - Backup existing files before overwriting them (`.bak` extension).
 - Restore backed up files.
 - List all the dotfiles in the repository.
 - List all the backed up files in the specified location (`$HOME/.dotfiles` by
-default).
+  default).
 - Show comparison to bash commands that can do the same thing (something like
-`bolt learn <command>`).
+  `bolt learn <command>`).
 - Eventually I want to learn nix and flakes and may incorporate or use that
-instead of this tool 🤷🏽.
+  instead of this tool 🤷🏽.
 
 ## Usage 💻
 
