@@ -1,11 +1,7 @@
 return {
-    -- NOTE: Plugins can be added with a link (or for a github repo: 'owner/repo' link).
-    "tpope/vim-sleuth", -- Detect tabstop and shiftwidth automatically
-
-    -- LSP Plugins
+    "tpope/vim-sleuth", -- Detects tabstop and shiftwidth automatically
     {
-        -- `lazydev` configures Lua LSP for your Neovim config, runtime and plugins
-        -- used for completion, annotations and signatures of Neovim apis
+        -- Neovim configuration LSP
         "folke/lazydev.nvim",
         ft = "lua",
         opts = {
@@ -18,20 +14,18 @@ return {
     { "Bilal2453/luvit-meta", lazy = true },
 
     -- Colorscheme
-    -- To see what colorschemes are already installed `:Telescope colorscheme`.
+    -- See `:Telescope colorscheme`.
     {
         "EdenEast/nightfox.nvim",
         priority = 1000, -- Make sure to load this before all the other start plugins.
         init = function()
             -- Load the colorscheme here.
-            vim.cmd.colorscheme("duskfox")
+            -- vim.cmd.colorscheme("duskfox")
 
             -- You can configure highlights by doing something like:
-            vim.cmd.hi("Comment gui=none")
+            -- vim.cmd.hi("Comment gui=none")
         end,
     },
-
-    -- Highlight todo, notes, etc in comments
     {
         "folke/todo-comments.nvim",
         event = "VimEnter",

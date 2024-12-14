@@ -1,7 +1,7 @@
--- Imports
 require("config.options")
 require("config.keymaps")
 require("config.autocmds")
+require("config.themes.evondev").setup()
 
 -- [[ Bootstrap lazy.nvim ]]
 --    See `:help lazy.nvim.txt` or https://github.com/folke/lazy.nvim for more info
@@ -17,6 +17,7 @@ if not (vim.uv or vim.loop).fs_stat(lazypath) then
         lazyrepo,
         lazypath,
     })
+
     if vim.v.shell_error ~= 0 then
         error("Error cloning lazy.nvim:\n" .. out)
     end
@@ -26,14 +27,12 @@ vim.opt.rtp:prepend(lazypath)
 
 -- [[ Plugins ]]
 --
---  To check the current status of your plugins, run
+--  Check the current status of plugins:
 --    :Lazy
 --
---  You can press `?` in this menu for help. Use `:q` to close the window
---
---  To update plugins you can run
+--  Update plugins:
 --    :Lazy update
-require("lazy").setup("plugins",{
+require("lazy").setup("plugins", {
     ui = {
         -- If you are using a Nerd Font: set icons to an empty table which will use the
         -- default lazy.nvim defined Nerd Font icons, otherwise define a unicode icons table
@@ -50,10 +49,10 @@ require("lazy").setup("plugins",{
             source = "📄",
             start = "🚀",
             task = "📌",
-            lazy = "💤 ",
+            lazy = "💤",
         },
     },
 })
 
--- The line beneath this is called `modeline`. See `:help modeline`
+-- See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et

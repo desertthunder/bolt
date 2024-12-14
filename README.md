@@ -41,3 +41,10 @@ required version of Golang (1.23.2) by running:
 asdf plugin add golang
 asdf install go 1.23.2
 ```
+
+## Original
+
+```bash
+rsync -ra config/nvim/ ~/.config/nvim
+cp config/.zshrc ~/.zshrc
+```

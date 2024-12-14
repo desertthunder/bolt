@@ -14,6 +14,7 @@ return { -- Autocompletion
                 then
                     return
                 end
+
                 return "make install_jsregexp"
             end)(),
             dependencies = {
@@ -69,8 +70,7 @@ return { -- Autocompletion
                 --  This will expand snippets if the LSP sent a snippet.
                 ["<C-y>"] = cmp.mapping.confirm({ select = true }),
 
-                -- If you prefer more traditional completion keymaps,
-                -- you can uncomment the following lines
+                -- More traditional completion keymaps:
                 --['<CR>'] = cmp.mapping.confirm { select = true },
                 --['<Tab>'] = cmp.mapping.select_next_item(),
                 --['<S-Tab>'] = cmp.mapping.select_prev_item(),
