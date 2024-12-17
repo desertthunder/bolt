@@ -9,7 +9,7 @@ export XDG_CONFIG_HOME="$HOME/.config"
 
 ZSH_THEME="powerlevel10k/powerlevel10k"
 
-plugins=(git asdf poetry rustup cargo)
+plugins=(git asdf poetry rustup cargo deno hugo)
 
 # Homebrew
 #

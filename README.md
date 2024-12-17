@@ -46,5 +46,5 @@ asdf install go 1.23.2
 
 ```bash
 rsync -ra config/nvim/ ~/.config/nvim
-cp config/.zshrc ~/.zshrc
+rsync -ra config/zsh/mac.zshrc ~/.zshrc # or whichever os you're on
 ```

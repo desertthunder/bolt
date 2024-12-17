@@ -1,6 +1,11 @@
 # TODO
 
 - [ ] 2024-11-09 Do something with the [cheatsheet](#cheatsheet-for-neovim) below.
+- [ ] 2024-12-05 View existing dotfiles for NeoVim
+- [ ] 2024-12-05 Hash Calculation for new & existing dotfiles
+- [ ] 2024-12-05 Wezterm configuration
+- [ ] 2024-12-05 Zellij
+- [ ] 2024-12-05 Dry Run
 
 ## Cheatsheet for NeoVim
 
