@@ -5,7 +5,7 @@ return {
         ---@type oil.SetupOpts
         opts = {
             delete_to_trash = false,
-            -- These are just the default keymaps. Here for reference.
+            -- Default keymaps, here for reference.
             keymaps = {
                 ["g?"] = "actions.show_help",
                 ["<CR>"] = "actions.select",
@@ -48,7 +48,6 @@ return {
                     return vim.startswith(name, ".")
                 end,
                 is_always_hidden = function(name, _)
-                    -- .git/ & .DS_Store
                     return name == ".git" or name == ".DS_Store"
                 end,
             },
