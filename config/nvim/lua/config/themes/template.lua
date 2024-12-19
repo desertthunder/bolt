@@ -49,10 +49,10 @@ local M = function(T)
     highlight("LspDiagnosticsDefaultHint", { fg = T.base_30.purple })
 
     -- Set nvimcmp highlights
-    highlight("CmpDoc", { bg = T.base_30.black2 })
-    highlight("CmpDocBorder", { fg = T.base_30.black2, bg = T.base_30.black2 })
+    highlight("CmpDocumentation", { bg = T.base_30.black2 })
+    highlight("CmpDocumentationBorder", { fg = T.base_30.black2, bg = T.base_30.black2 })
     highlight("CmpBorder", { fg = T.base_30.darker_black, bg = T.base_30.darker_black })
-    highlight("CmpPmenu", { bg = T.base_30.darker_black })
+    highlight("CmpItemMenu", { bg = T.base_30.darker_black })
 
     highlight("CmpItemAbbr", { fg = T.base_30.white })
     highlight("CmpItemAbbrMatch", { fg = T.base_30.vibrant_green, bold = true })
