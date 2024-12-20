@@ -3,12 +3,17 @@ return {
     "neovim/nvim-lspconfig",
     dependencies = {
         -- Automatically install LSPs and related tools to stdpath for Neovim
-        { "williamboman/mason.nvim", config = true }, -- NOTE: Must be loaded before dependants
+        {
+            "williamboman/mason.nvim",
+            config = true,
+            opts = {
+                ensure_installed = { "markdownlint-cli2", "markdown-toc" },
+            },
+        }, -- NOTE: Must be loaded before dependants
         "williamboman/mason-lspconfig.nvim",
         "WhoIsSethDaniel/mason-tool-installer.nvim",
 
         -- Useful status updates for LSP.
-        -- NOTE: `opts = {}` is the same as calling `require('fidget').setup({})`
         { "j-hui/fidget.nvim", opts = {} },
 
         -- Allows extra capabilities provided by nvim-cmp
@@ -27,8 +32,9 @@ return {
                 { clear = true }
             ),
             callback = function(event)
-                -- This fn gives us more easily defined mappings specific
-                -- for LSP related items. It sets the mode, buffer and description for us each time.
+                -- This fn gives us more easily defined mappings specific for LSP
+                -- related items. It sets the mode, buffer and description for us
+                -- each time.
                 local map = function(keys, func, desc, mode)
                     mode = mode or "n"
                     vim.keymap.set(

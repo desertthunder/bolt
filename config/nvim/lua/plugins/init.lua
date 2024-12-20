@@ -20,7 +20,7 @@ return {
         priority = 1000, -- Make sure to load this before all the other start plugins.
         init = function()
             -- Load the colorscheme here.
-            -- vim.cmd.colorscheme("duskfox")
+            vim.cmd.colorscheme("duskfox")
 
             -- You can configure highlights by doing something like:
             -- vim.cmd.hi("Comment gui=none")
@@ -41,6 +41,7 @@ return {
             -- If you want to automatically add `(` after selecting a function or method
             local cmp_autopairs = require("nvim-autopairs.completion.cmp")
             local cmp = require("cmp")
+            ---@diagnostic disable-next-line
             cmp.event:on("confirm_done", cmp_autopairs.on_confirm_done())
         end,
     },

@@ -1,7 +1,7 @@
 require("config.options")
 require("config.keymaps")
 require("config.autocmds")
-require("config.themes.evondev").setup()
+-- require("config.themes.evondev").setup() -- uncomment to use your own themes
 
 -- [[ Bootstrap lazy.nvim ]]
 --    See `:help lazy.nvim.txt` or https://github.com/folke/lazy.nvim for more info

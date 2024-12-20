@@ -1,16 +1,18 @@
-return
-{ -- Autoformat
-    'stevearc/conform.nvim',
-    event = { 'BufWritePre' },
-    cmd = { 'ConformInfo' },
+return {
+    "stevearc/conform.nvim",
+    event = { "BufWritePre" },
+    cmd = { "ConformInfo" },
     keys = {
         {
-            '<leader>f',
+            "<leader>f",
             function()
-                require('conform').format { async = true, lsp_format = 'fallback' }
+                require("conform").format({
+                    async = true,
+                    lsp_format = "fallback",
+                })
             end,
-            mode = '',
-            desc = '[F]ormat buffer',
+            mode = "",
+            desc = "[F]ormat buffer",
         },
     },
     opts = {
@@ -22,9 +24,9 @@ return
             local disable_filetypes = { c = true, cpp = true }
             local lsp_format_opt
             if disable_filetypes[vim.bo[bufnr].filetype] then
-                lsp_format_opt = 'never'
+                lsp_format_opt = "never"
             else
-                lsp_format_opt = 'fallback'
+                lsp_format_opt = "fallback"
             end
             return {
                 timeout_ms = 500,
@@ -34,7 +36,11 @@ return
         formatters = {
             ["markdown-toc"] = {
                 condition = function(_, ctx)
-                    for _, line in ipairs(vim.api.nvim_buf_get_lines(ctx.buf, 0, -1, false)) do
+                    for _, line in
+                        ipairs(
+                            vim.api.nvim_buf_get_lines(ctx.buf, 0, -1, false)
+                        )
+                    do
                         if line:find("<!%-%- toc %-%->") then
                             return true
                         end
@@ -51,9 +57,9 @@ return
             },
         },
         formatters_by_ft = {
-            lua = { 'stylua' },
+            lua = { "stylua" },
             go = { "goimports", "gofumpt" },
             markdown = { "prettier", "markdownlint-cli2", "markdown-toc" },
-          },
+        },
     },
 }
