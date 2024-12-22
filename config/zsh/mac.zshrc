@@ -20,6 +20,12 @@ export PATH=$PATH:$BREW_PATH:~/.cargo/bin/
 eval "$(brew shellenv)"
 source $ZSH/oh-my-zsh.sh
 
+# Aliases
+#
+# Love2D
+alias love="/Applications/love.app/Contents/MacOS/love"
+
+
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 autoload -Uz compinit
