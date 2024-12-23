@@ -12,19 +12,33 @@ return {
         },
     },
     { "Bilal2453/luvit-meta", lazy = true },
-
     -- Colorscheme
     -- See `:Telescope colorscheme`.
     {
-        "EdenEast/nightfox.nvim",
-        priority = 1000, -- Make sure to load this before all the other start plugins.
+        "bluz71/vim-moonfly-colors",
+        name = "moonfly",
+        lazy = true,
+        priority = 1000,
         init = function()
-            -- Load the colorscheme here.
-            vim.cmd.colorscheme("duskfox")
-
-            -- You can configure highlights by doing something like:
-            -- vim.cmd.hi("Comment gui=none")
+            vim.cmd.colorscheme("moonfly")
         end,
+    },
+    {
+        "bluz71/vim-nightfly-colors",
+        name = "nightfly",
+        lazy = true,
+        -- priority = 1000,
+        -- init = function()
+        --     vim.cmd.colorscheme("nightfly")
+        -- end,
+    },
+    {
+        "EdenEast/nightfox.nvim",
+        lazy = true,
+        --     priority = 1000,
+        --     init = function()
+        --         vim.cmd.colorscheme("carbonfox")
+        --     end,
     },
     {
         "folke/todo-comments.nvim",
@@ -43,6 +57,21 @@ return {
             local cmp = require("cmp")
             ---@diagnostic disable-next-line
             cmp.event:on("confirm_done", cmp_autopairs.on_confirm_done())
+        end,
+    },
+    {
+
+        "akinsho/toggleterm.nvim",
+        version = "*",
+        config = function()
+            require("toggleterm").setup()
+
+            vim.api.nvim_set_keymap(
+                "n",
+                "<C-j>",
+                "<cmd>ToggleTerm<CR>",
+                { noremap = true, silent = true, desc = "Toggle Terminal" }
+            )
         end,
     },
 }
