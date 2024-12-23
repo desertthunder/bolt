@@ -27,7 +27,7 @@ return {
         -- Add wordcount to section_location
         ---@diagnostic disable-next-line: duplicate-set-field
         statusline.section_location = function()
-			local default = "%2l:%-2v"
+            local default = "%2l:%-2v"
 
             if vim.bo.filetype == "markdown" then
                 local wordcount = tostring(vim.fn.wordcount().words)
