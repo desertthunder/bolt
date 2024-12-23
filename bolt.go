@@ -14,8 +14,10 @@ import (
 	"github.com/charmbracelet/log"
 )
 
-var files []string = []string{".wezterm.lua", ".zshrc"}
-var dirs []string = []string{"nvim", "zellij"}
+var (
+	files []string = []string{".wezterm.lua", ".zshrc"}
+	dirs  []string = []string{"nvim", "zellij"}
+)
 
 // Bolted is a container type for applications that have
 // stored configurations in the root dir or the XDG_CONFIG
@@ -39,7 +41,6 @@ func (b *BoltedFile) ComputeHash() {
 	h := md5.New()
 
 	f, err := os.Open(b.Path)
-
 	if err != nil {
 		log.Fatalf("unable to open file %s: %s", b.Path, err.Error())
 	}
