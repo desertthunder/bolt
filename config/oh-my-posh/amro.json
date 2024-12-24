@@ -54,5 +54,10 @@
             "type": "prompt"
         }
     ],
+    "transient_prompt": {
+        "background": "transparent",
+        "foreground": "#CD4277",
+        "template": "{{ .Shell }}> "
+    },
     "version": 3
 }
