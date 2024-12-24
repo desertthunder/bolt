@@ -46,5 +46,11 @@ asdf install go 1.23.2
 
 ```bash
 rsync -ra config/nvim/ ~/.config/nvim
-rsync -ra config/zsh/mac.zshrc ~/.zshrc # or whichever os you're on
+rsync -ra config/zsh/mac/.zshrc ~/.zshrc # or whichever os you're on
 ```
+
+## Oh-My-Posh
+
+There are a few themes stored in the oh-my-posh directory. Instead of just copying
+and updating a single file, there should be a selection of themes based on filename
+to choose from.

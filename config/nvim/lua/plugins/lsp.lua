@@ -1,40 +1,30 @@
 -- Main LSP Configuration
+--
+-- Built heavily on top of LazyVim's specs & Kickstart.nvim
 return {
     "neovim/nvim-lspconfig",
     dependencies = {
-        -- Automatically install LSPs and related tools to stdpath for Neovim
         {
+            -- This HAS to be first.
             "williamboman/mason.nvim",
             config = true,
             opts = {
-                ensure_installed = { "markdownlint-cli2", "markdown-toc" },
+                ensure_installed = { "prettier", "markdownlint-cli2", "markdown-toc" },
             },
-        }, -- NOTE: Must be loaded before dependants
+        },
         "williamboman/mason-lspconfig.nvim",
         "WhoIsSethDaniel/mason-tool-installer.nvim",
-
-        -- Useful status updates for LSP.
+        -- Status updates for LSP.
         { "j-hui/fidget.nvim", opts = {} },
-
-        -- Allows extra capabilities provided by nvim-cmp
         "hrsh7th/cmp-nvim-lsp",
     },
     config = function()
-        -- lsp vs treesitter see `:help lsp-vs-treesitter`
-
-        --  This function runs when an LSP attaches to a particular buffer.
-        --    That is to say, every time a new file is opened that is associated with
-        --    an lsp (for example, opening `main.rs` is associated with `rust_analyzer`) this
-        --    function will be executed to configure the current buffer
         vim.api.nvim_create_autocmd("LspAttach", {
             group = vim.api.nvim_create_augroup(
                 "kickstart-lsp-attach",
                 { clear = true }
             ),
             callback = function(event)
-                -- This fn gives us more easily defined mappings specific for LSP
-                -- related items. It sets the mode, buffer and description for us
-                -- each time.
                 local map = function(keys, func, desc, mode)
                     mode = mode or "n"
                     vim.keymap.set(
@@ -158,10 +148,6 @@ return {
                     })
                 end
 
-                -- Create a keymap to toggle inlay hints in your code,
-                -- if the language server you are using supports them
-                --
-                -- This may be unwanted, since they displace some of your code
                 if
                     client
                     and client.supports_method(
@@ -179,13 +165,6 @@ return {
             end,
         })
 
-        -- Set up the LSP capabilities
-        --  Add any additional override configuration in the servers table. Available keys are:
-        --  - cmd (table): Override the default command used to start the server
-        --  - filetypes (table): Override the default list of associated filetypes for the server
-        --  - capabilities (table): Override fields in capabilities. Can be used to disable certain LSP features.
-        --  - settings (table): Override the default settings passed when initializing the server.
-        --        For example, to see the options for `lua_ls`, you could go to: https://luals.github.io/wiki/settings/
         local capabilities = vim.lsp.protocol.make_client_capabilities()
         capabilities = vim.tbl_deep_extend(
             "force",
@@ -194,7 +173,6 @@ return {
         )
 
         local servers = {
-            -- clangd = {},
             gopls = {
                 settings = {
                     gopls = {
@@ -239,21 +217,36 @@ return {
                 },
             },
             marksman = {},
-            -- pyright = {},
-            -- rust_analyzer = {},
             lua_ls = {
-                -- cmd = {...},
-                -- filetypes = { ...},
-                -- capabilities = {},
                 settings = {
                     Lua = {
                         completion = {
                             callSnippet = "Replace",
                         },
-                        -- You can toggle below to ignore Lua_LS's noisy `missing-fields` warnings
                         -- diagnostics = { disable = { 'missing-fields' } },
                     },
                 },
+            },
+            ocamllsp = {
+                filetypes = {
+                    "ocaml",
+                    "ocaml.menhir",
+                    "ocaml.interface",
+                    "ocaml.ocamllex",
+                    "reason",
+                    "dune",
+                },
+                root_dir = function(fname)
+                    return require("lspconfig.util").root_pattern(
+                        "*.opam",
+                        "esy.json",
+                        "package.json",
+                        ".git",
+                        "dune-project",
+                        "dune-workspace",
+                        "*.ml"
+                    )(fname)
+                end,
             },
         }
 
