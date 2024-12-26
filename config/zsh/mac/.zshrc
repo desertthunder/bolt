@@ -27,3 +27,6 @@ compinit
 # END opam configuration
 
 eval "$(oh-my-posh init zsh --config ~/.omp.json)"
+
+# dune
+source $HOME/.local/share/dune/env/env.zsh
