@@ -20,8 +20,6 @@ me to maintain a consistent environment between...
   default).
 - Show comparison to bash commands that can do the same thing (something like
   `bolt learn <command>`).
-- Eventually I want to learn nix and flakes and may incorporate or use that
-  instead of this tool 🤷🏽.
 
 ## Usage 💻
 
